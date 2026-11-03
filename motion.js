@@ -105,3 +105,28 @@ document.querySelectorAll('.fukuro').forEach(box => {
   }, { rootMargin: '-45% 0px -50% 0px' });
   secs.forEach(s => io.observe(s));
 })();
+
+// ===== ページ上部の目次（仲間ページと同じ形） =====
+(function pageIndex() {
+  const main = document.querySelector('main');
+  const hero = main && main.querySelector('.page-hero');
+  if (!hero || main.querySelector('.member-index')) return;
+  let items = [...main.querySelectorAll('[data-index]')].map(el => {
+    const [en, ja] = el.dataset.index.split('|');
+    return { id: el.id, en, ja };
+  });
+  if (!items.length) {
+    items = [...main.querySelectorAll(':scope > section[id]')].map(s => {
+      const en = s.querySelector(':scope > .container > .en');
+      const h2 = s.querySelector(':scope > .container > h2');
+      return en && h2 ? { id: s.id, en: en.textContent.trim(), ja: h2.textContent.trim() } : null;
+    }).filter(Boolean);
+  }
+  if (items.length < 2) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'container';
+  wrap.innerHTML = `<nav aria-label="このページの目次"><ul class="member-index page-index" style="grid-template-columns:repeat(${items.length},1fr)">${
+    items.map(i => `<li><a href="#${i.id}"><span class="en-t">${i.en}</span><span class="ja-t">${i.ja}</span></a></li>`).join('')
+  }</ul></nav>`;
+  hero.after(wrap);
+})();

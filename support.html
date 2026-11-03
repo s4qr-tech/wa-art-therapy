@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
 <header>
@@ -47,7 +47,7 @@
 <section class="support" id="support">
   <div class="container">
         <p class="fade">和紙や道具の購入、施設への交通費、研究の記録など、活動はみなさまのご支援に支えられています。</p>
-    <div class="support-grid">
+    <div class="support-grid" id="ways" data-index="Ways to Support|応援のかたち">
       <div class="support-card fade">
         <span class="badge">01</span>
         <h3>ご寄付</h3>
@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <div class="member-plan fade">
+    <div class="member-plan fade" id="membership" data-index="Supporting Members|賛助会員制度">
       <div class="mp-head">
         <span class="en">Supporting Members</span>
         <h3>賛助会員制度</h3>
@@ -103,6 +103,6 @@ const io = new IntersectionObserver((es) => {
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
 </script>
 <script src="menu.js?v=4"></script>
-<script src="motion.js?v=7"></script>
+<script src="motion.js?v=8"></script>
 </body>
 </html>

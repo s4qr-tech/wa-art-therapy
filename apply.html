@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
 
@@ -42,9 +42,9 @@
       <h1>応募フォーム</h1>
       <p style="margin-top:14px">施設の方・学生の方・ご支援いただける方、それぞれのフォームからお申し込みください。</p>
       <div class="tabs" role="tablist">
-        <button class="tab active" data-target="facility" role="tab">施設の方</button>
-        <button class="tab" data-target="student" role="tab">学生の方</button>
-        <button class="tab" data-target="support" role="tab">支援・賛助会員</button>
+        <button class="tab active" data-target="facility" role="tab"><span class="en-t">For Facilities</span><span class="ja-t">施設の方</span></button>
+        <button class="tab" data-target="student" role="tab"><span class="en-t">For Students</span><span class="ja-t">学生の方</span></button>
+        <button class="tab" data-target="support" role="tab"><span class="en-t">Support</span><span class="ja-t">支援・賛助会員</span></button>
       </div>
     </div>
   </section>
@@ -228,6 +228,6 @@ panels.forEach(p => p.addEventListener('submit', e => {
 }));
 </script>
 <script src="menu.js?v=4"></script>
-<script src="motion.js?v=7"></script>
+<script src="motion.js?v=8"></script>
 </body>
 </html>

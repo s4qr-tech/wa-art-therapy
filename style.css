@@ -1202,3 +1202,30 @@ input[type=text], input[type=email], input[type=tel], select, textarea { border-
   .member-index .en-t { font-size: 16px; }
   .member-index .ja-t { font-size: 14px; letter-spacing: .06em; }
 }
+
+/* ===== ページ目次（仲間ページと同じ形を全ページに） ===== */
+.page-index { margin: 60px 0 0; }
+.page-index + * { margin-top: 0; }
+.page-hero + .container + section { padding-top: 80px; }
+section[id], [data-index] { scroll-margin-top: 80px; }
+
+/* 応募フォームのタブも同じ形に */
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: none; margin-top: 40px; }
+.tab, body.is-formal .tab { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 22px 20px 22px 0; border: none; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); text-align: left; transition: color .2s; }
+.tab + .tab, body.is-formal .tab + .tab { padding-left: 20px; border-left: 1px solid var(--line); }
+.tab:hover { color: var(--shu); }
+.tab .ja-t { font-size: 18px; opacity: 1; letter-spacing: .14em; }
+.tab.active, body.is-formal .tab.active { background: transparent; color: var(--ink); border-bottom: 2px solid var(--shu); }
+.tab.active .ja-t { color: var(--shu); }
+.tab.active .en-t::after { content: "  ●"; font-size: 10px; color: var(--shu); vertical-align: middle; }
+@media (max-width: 860px) {
+  .page-index { margin-top: 40px; }
+  .page-hero + .container + section { padding-top: 60px; }
+  .page-index .en-t, .tab .en-t { font-size: 15px; }
+  .page-index .ja-t, .tab .ja-t { font-size: 13px; letter-spacing: .04em; }
+  .tab, body.is-formal .tab { padding: 16px 8px 16px 0; }
+  .tab + .tab, body.is-formal .tab + .tab { padding-left: 10px; }
+}
+.member-index li { display: flex; }
+.member-index li > a { flex: 1; }
+@media (max-width: 860px) { .tab.active .en-t::after { content: none; } }
