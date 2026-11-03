@@ -1229,3 +1229,6 @@ section[id], [data-index] { scroll-margin-top: 80px; }
 .member-index li { display: flex; }
 .member-index li > a { flex: 1; }
 @media (max-width: 860px) { .tab.active .en-t::after { content: none; } }
+
+/* 参加者の声（袋とじなし） */
+.voice-label { display: block; font-family: var(--font-serif); font-size: 13px; letter-spacing: .2em; color: var(--shu); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
