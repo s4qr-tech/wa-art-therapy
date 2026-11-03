@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=21">
+<link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
 
@@ -78,6 +78,7 @@
 </footer>
 
 <script>
+// ▼ 季節ごとの一覧は、各季節の中で新しい月が上に表示されます
 // ▼ ここを書き換えると、帯と季節一覧の両方が更新されます
 const MONTHS = [
   { m: 4,  season: 'spring', title: '説明会',          tag: '新歓',   text: '新メンバー向けの説明会。和紙ちぎりの体験コーナーも。' },
@@ -128,7 +129,7 @@ strips.querySelectorAll('.strip').forEach(s => {
 document.getElementById('seasonList').innerHTML = Object.entries(SEASONS).map(([key, s]) => `
   <div class="season ${key}">
     <h3>${s.ja}<small>${s.en}</small></h3>
-    <ul>${MONTHS.filter(d => d.season === key).map(d => `<li><b>${d.m}月</b>${d.title}</li>`).join('')}</ul>
+    <ul>${MONTHS.filter(d => d.season === key).reverse().map(d => `<li><b>${d.m}月</b>${d.title}</li>`).join('')}</ul>
   </div>`).join('');
 </script>
 <script src="menu.js?v=4"></script>

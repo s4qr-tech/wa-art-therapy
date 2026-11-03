@@ -1122,3 +1122,4 @@ input[type=text], input[type=email], input[type=tel], select, textarea { border-
 /* スマホだけ表示する補足 */
 .sp-only { display: none; }
 @media (max-width: 860px) { .sp-only { display: inline; } }
+.order-note { font-family: var(--font-serif); font-size: 13px; letter-spacing: .1em; color: var(--muted); margin: -14px 0 18px; }
