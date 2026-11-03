@@ -933,3 +933,6 @@ header { background: rgba(243,240,232,.9); }
   .stat-board .num { font-size: 48px; }
 }
 .stat-board .num, .ed-list .n, .en-t { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.ed-x { font-family: var(--font-en); font-weight: 400; color: var(--shu); margin: 0 .12em; font-size: .7em; vertical-align: .08em; }
+.ed-art { font-family: var(--font-en); font-weight: 400; font-style: italic; }
+.ed-art { font-family: var(--font-serif); font-style: normal; font-weight: 500; }
