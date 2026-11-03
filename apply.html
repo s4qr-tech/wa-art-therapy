@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache">
+<link rel="icon" href="assets/favicon.png">
+<meta name="theme-color" content="#F3F0E8">
 <title>応募フォーム｜和アートセラピー</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
 <header>
   <div class="container nav">
-    <a href="index.html" class="logo"><i></i>和アートセラピー</a>
+    <a href="index.html" class="logo"><img src="assets/mark.png" alt="" width="40" height="25"><span>和アートセラピー</span></a>
     <div class="nav-right">
       <a href="apply.html" class="btn small">応募する</a>
       <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
@@ -96,61 +98,98 @@
       </form>
 
       <!-- Student -->
-      <form class="panel" id="student">
-        <div class="row2">
-          <div class="field"><label>お名前<small>必須</small></label><input type="text" name="name" required></div>
-          <div class="field"><label>ふりがな</label><input type="text" name="kana"></div>
+      <form class="panel formal" id="student">
+        <div class="field formal-intro">
+          <h2 class="formal-title">学生メンバーへの参加お申し込み</h2>
+          <p>「和アートセラピー」の活動に関心をお寄せいただき、ありがとうございます。参加をご希望の学生の方は、下記のフォームに必要事項をご記入のうえ、送信してください。内容を確認のうえ、担当者より5営業日以内にご連絡いたします。</p>
+          <p class="req-note"><span class="req">必須</span> は必須項目です。</p>
         </div>
-        <div class="row2">
-          <div class="field"><label>大学・学部<small>必須</small></label><input type="text" name="univ" required></div>
-          <div class="field"><label>学年</label>
+
+        <fieldset class="field">
+          <legend><span>1</span>ご本人情報</legend>
+          <div class="frow"><label>お名前<span class="req">必須</span></label><input type="text" name="name" required></div>
+          <div class="frow"><label>ふりがな</label><input type="text" name="kana"></div>
+          <div class="frow"><label>大学・学部<span class="req">必須</span></label><input type="text" name="univ" required placeholder="例：順天堂大学 保健医療学部"></div>
+          <div class="frow"><label>学年</label>
             <select name="grade"><option>1年</option><option>2年</option><option>3年</option><option>4年</option><option>大学院</option><option>その他</option></select>
           </div>
-        </div>
-        <div class="row2">
-          <div class="field"><label>メールアドレス<small>必須</small></label><input type="email" name="email" required></div>
-          <div class="field"><label>電話番号</label><input type="tel" name="tel"></div>
-        </div>
-        <div class="field"><label>関わり方（複数可）</label>
-          <div class="checks">
-            <label><input type="checkbox"> 施設訪問</label><label><input type="checkbox"> 企画・準備</label><label><input type="checkbox"> デザイン・制作</label><label><input type="checkbox"> 研究・記録</label><label><input type="checkbox"> 広報</label>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend><span>2</span>ご連絡先</legend>
+          <div class="frow"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required></div>
+          <div class="frow"><label>電話番号</label><input type="tel" name="tel" placeholder="例：090-0000-0000"></div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend><span>3</span>ご希望内容</legend>
+          <div class="frow"><label>関わり方（複数選択可）</label>
+            <div class="checks">
+              <label><input type="checkbox"> 施設訪問</label><label><input type="checkbox"> 企画・準備</label><label><input type="checkbox"> デザイン・制作</label><label><input type="checkbox"> 研究・記録</label><label><input type="checkbox"> 広報</label>
+            </div>
           </div>
+          <div class="frow"><label>志望理由・自己紹介</label><textarea name="motive" placeholder="参加したい理由や、これまでの経験などをご記入ください。"></textarea></div>
+        </fieldset>
+
+        <div class="field privacy">
+          <h3>個人情報の取り扱いについて</h3>
+          <p>ご記入いただいた個人情報は、本活動に関するご連絡および参加手続きの目的にのみ利用し、ご本人の同意なく第三者に提供することはございません。（文面は仮置きです。大学の規程に沿った内容に差し替えてください。）</p>
+          <div class="checks"><label><input type="checkbox" required> 上記の個人情報の取り扱いに同意します<span class="req">必須</span></label></div>
         </div>
-        <div class="field"><label>参加したい理由・自己紹介</label><textarea name="motive"></textarea></div>
-        <div class="field"><div class="checks"><label><input type="checkbox" required> 個人情報の取り扱いに同意します</label></div></div>
-        <button class="btn indigo" type="submit">学生として応募する</button>
-        <div class="thanks"><h3>ありがとうございます。</h3><p>内容を確認のうえ、担当よりご連絡します。</p></div>
+        <div class="field submit-row"><button class="btn formal-btn" type="submit">この内容で送信する</button></div>
+        <div class="thanks"><h3>お申し込みを受け付けました</h3><p>このたびはお申し込みいただき、誠にありがとうございます。<br>内容を確認のうえ、担当者より改めてご連絡いたします。</p></div>
       </form>
 
       <!-- Support -->
-      <form class="panel" id="support">
-        <div class="field"><label>ご支援の種類<small>必須</small></label>
-          <select name="support_type" required>
-            <option value="">選択してください</option>
-            <option>賛助会員（個人）</option><option>賛助会員（学生）</option><option>賛助会員（法人・団体）</option>
-            <option>ご寄付（一回）</option><option>物品のご提供</option><option>その他・相談したい</option>
-          </select>
+      <form class="panel formal" id="support">
+        <div class="field formal-intro">
+          <h2 class="formal-title">ご支援・賛助会員のお申し込み</h2>
+          <p>「和アートセラピー」の活動へのご支援をご検討いただき、誠にありがとうございます。賛助会員へのご入会、ご寄付、物品のご提供をご希望の方は、下記のフォームに必要事項をご記入のうえ、送信してください。お手続きの詳細は、担当者よりメールにてご案内いたします。</p>
+          <p class="req-note"><span class="req">必須</span> は必須項目です。</p>
         </div>
-        <div class="row2">
-          <div class="field"><label>お名前・団体名<small>必須</small></label><input type="text" name="name" required></div>
-          <div class="field"><label>口数（賛助会員の方・最大10口）</label><select name="units">
-            <option value="">—（賛助会員以外）</option>
-            <option>1口</option><option>2口</option><option>3口</option><option>4口</option><option>5口</option>
-            <option>6口</option><option>7口</option><option>8口</option><option>9口</option><option>10口</option>
-          </select></div>
+
+        <fieldset class="field">
+          <legend><span>1</span>ご支援の内容</legend>
+          <div class="frow"><label>ご支援の種類<span class="req">必須</span></label>
+            <select name="support_type" required>
+              <option value="">選択してください</option>
+              <option>賛助会員（個人）</option><option>賛助会員（学生）</option><option>賛助会員（法人・団体）</option>
+              <option>ご寄付（一回）</option><option>物品のご提供</option><option>その他・ご相談</option>
+            </select>
+          </div>
+          <div class="frow"><label>口数（賛助会員の方・最大10口）</label>
+            <select name="units">
+              <option value="">—（賛助会員以外）</option>
+              <option>1口</option><option>2口</option><option>3口</option><option>4口</option><option>5口</option>
+              <option>6口</option><option>7口</option><option>8口</option><option>9口</option><option>10口</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend><span>2</span>お申込者さま情報</legend>
+          <div class="frow"><label>お名前・団体名<span class="req">必須</span></label><input type="text" name="name" required></div>
+          <div class="frow"><label>ご担当者名（法人・団体の場合）</label><input type="text" name="contact_name"></div>
+          <div class="frow"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required></div>
+          <div class="frow"><label>電話番号</label><input type="tel" name="tel" placeholder="例：03-0000-0000"></div>
+          <div class="frow"><label>活動報告の送付先（ご住所）</label><input type="text" name="address"></div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend><span>3</span>その他</legend>
+          <div class="frow"><label>サイトへのお名前掲載</label>
+            <div class="checks"><label><input type="radio" name="listing" value="yes"> 希望する</label><label><input type="radio" name="listing" value="no" checked> 希望しない</label></div>
+          </div>
+          <div class="frow"><label>ご連絡事項</label><textarea name="message" placeholder="ご提供いただける物品や、ご質問などがございましたらご記入ください。"></textarea></div>
+        </fieldset>
+
+        <div class="field privacy">
+          <h3>個人情報の取り扱いについて</h3>
+          <p>ご記入いただいた個人情報は、ご支援に関するご連絡、お手続きおよび活動報告の送付の目的にのみ利用し、ご本人の同意なく第三者に提供することはございません。（文面は仮置きです。大学の規程に沿った内容に差し替えてください。）</p>
+          <div class="checks"><label><input type="checkbox" required> 上記の個人情報の取り扱いに同意します<span class="req">必須</span></label></div>
         </div>
-        <div class="row2">
-          <div class="field"><label>メールアドレス<small>必須</small></label><input type="email" name="email" required></div>
-          <div class="field"><label>電話番号</label><input type="tel" name="tel"></div>
-        </div>
-        <div class="field"><label>活動報告の送付先（ご住所）</label><input type="text" name="address"></div>
-        <div class="field"><label>サイトへのお名前掲載</label>
-          <div class="checks"><label><input type="radio" name="listing" value="yes"> 希望する</label><label><input type="radio" name="listing" value="no" checked> 希望しない</label></div>
-        </div>
-        <div class="field"><label>メッセージ・ご提供いただける物品など</label><textarea name="message"></textarea></div>
-        <div class="field"><div class="checks"><label><input type="checkbox" required> 個人情報の取り扱いに同意します</label></div></div>
-        <button class="btn" type="submit">支援を申し込む</button>
-        <div class="thanks"><h3>温かいご支援をありがとうございます。</h3><p>お支払い方法などの詳細は、担当よりメールでご案内します。</p></div>
+        <div class="field submit-row"><button class="btn formal-btn" type="submit">この内容で送信する</button></div>
+        <div class="thanks"><h3>お申し込みを受け付けました</h3><p>温かいご支援をいただき、誠にありがとうございます。<br>お手続きの詳細は、担当者よりメールにてご案内いたします。</p></div>
       </form>
 
       <p class="note">※ 現在は見た目のみのデモです。送信先（Googleフォーム／メール等）は後で接続してください。</p>
@@ -162,7 +201,7 @@
 
 <footer>
   <div class="container">
-    <div class="logo"><i></i>和アートセラピー</div>
+    <img class="footer-logo" src="assets/logo.png" alt="ロゴ" width="190" height="137">
     <p>© 2026 Wa Art Therapy</p>
   </div>
 </footer>
@@ -174,7 +213,7 @@ function show(id) {
   if (!document.getElementById(id)) id = 'facility';
   tabs.forEach(t => t.classList.toggle('active', t.dataset.target === id));
   panels.forEach(p => p.classList.toggle('active', p.id === id));
-  document.body.classList.toggle('is-formal', id === 'facility');
+  document.body.classList.add('is-formal');
 }
 tabs.forEach(t => t.addEventListener('click', () => { show(t.dataset.target); history.replaceState(null, '', '#' + t.dataset.target); }));
 show(location.hash.replace('#', ''));
@@ -188,6 +227,6 @@ panels.forEach(p => p.addEventListener('submit', e => {
 }));
 </script>
 <script src="menu.js?v=4"></script>
-<script src="motion.js?v=4"></script>
+<script src="motion.js?v=6"></script>
 </body>
 </html>

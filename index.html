@@ -4,26 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache">
+<link rel="icon" href="assets/favicon.png">
+<meta name="theme-color" content="#F3F0E8">
 <title>和アートセラピー｜順天堂大学×世代をつなぐアート活動</title>
 <meta name="description" content="順天堂大学の学生と他大学の学生、OTが高齢者施設を訪れ、和紙をちぎり・切り・貼って形づくる活動「和アートセラピー」。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
-<!-- 最初の画面：和紙をやぶって開く -->
-<div class="washi" id="washi" role="dialog" aria-label="オープニング" tabindex="0">
-  <div class="w-top"><div class="w-piece"><div class="w-title"><span class="en">Wa Art Therapy</span><b>和アートセラピー</b></div></div></div>
-  <div class="w-bottom"><div class="w-piece"><p class="w-hint"><span class="w-finger" aria-hidden="true"></span><span class="for-touch">指でよこになぞって、和紙をやぶる</span><span class="for-mouse">マウスでよこになぞって、和紙をやぶる</span></p></div></div>
-  <svg class="w-crease" aria-hidden="true"><polyline points="" /></svg>
-  <button class="w-skip" type="button">ひらく</button>
-</div>
 
 <header>
   <div class="container nav">
-    <a href="index.html" class="logo"><i></i>和アートセラピー</a>
+    <a href="index.html" class="logo"><img src="assets/mark.png" alt="" width="40" height="25"><span>和アートセラピー</span></a>
     <div class="nav-right">
       <a href="apply.html" class="btn small">応募する</a>
       <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
@@ -44,102 +39,112 @@
 
 <main id="top">
 
-<!-- 1. First view -->
-<section class="hero">
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
-  <svg class="stroke" viewBox="0 0 420 120" fill="none" aria-hidden="true">
-    <path d="M10 80 C 80 20, 140 110, 210 60 S 340 20, 410 70" stroke="#F2784B" stroke-width="14" stroke-linecap="round" opacity=".85"/>
-  </svg>
-  <div class="container">
-    <span class="en">Juntendo University × Wa Art Therapy</span>
-    <h1>
-      <span class="c1">ちぎって</span>、貼って、<br>
-      心が<span class="c2">ほどける</span>。
-    </h1>
-    <p class="lead">学生とOTが高齢者施設へ。和紙を自分の手でちぎり、切り、貼りあわせて形にする時間が、世代をこえた笑顔を生みます。</p>
-    <div class="cta">
-      <a href="apply.html" class="btn">施設・学生の応募はこちら</a>
-      <a href="#about" class="btn ghost">活動を知る</a>
+<!-- ファーストビュー -->
+<section class="ed-hero" data-label="Wa Art Therapy">
+  <div class="ed-hero-bg" aria-hidden="true"></div>
+  <div class="ed-hero-in">
+    <p class="ed-title">WA ART THERAPY</p>
+    <p class="ed-intro-en">A creative program by students and occupational therapists. Together with elderly people in care facilities, we tear, cut and paste Japanese washi paper — and let conversation unfold between generations.</p>
+    <h1 class="ed-catch"><span>ちぎって、貼って、</span><span>心がほどける。</span></h1>
+    <img class="ed-hero-mark" src="assets/mark.png" alt="" aria-hidden="true">
+    <div class="ed-hero-info">
+      <p class="ed-place">Juntendo University</p>
+      <dl>
+        <div><dt>活動</dt><dd>高齢者福祉施設での和紙のコラージュ制作</dd></div>
+        <div><dt>参加</dt><dd>順天堂大学の学生・他大学の学生・作業療法士（OT）</dd></div>
+        <div><dt>研究</dt><dd>順天堂大学 国際教養学部（論文掲載 2026）</dd></div>
+      </dl>
+      <a href="apply.html" class="ed-link">施設・学生の応募はこちら</a>
     </div>
   </div>
 </section>
 
-<!-- 2. About -->
-<section class="about" id="about">
-  <div class="container about-grid">
-    <div class="fade">
-      <span class="en">About</span>
-      <h2>「和」を<span class="mark">いっしょに</span>、つくる。</h2>
-      <p>和アートセラピーは、順天堂大学の学生を中心に、他大学の学生、作業療法士（OT）が高齢者施設を訪れて行うアート活動です。</p>
-      <p>使うのは、昔なじみの「和紙」。はさみで切ったり、手で破いたり、ちぎったりした和紙を貼りあわせて形をつくります。筆で描くのではなく、指先を動かしながら会話と笑顔を生み出します。研究としても、その心身への効果を探っています。</p>
+<!-- コンセプト -->
+<section class="ed-concept" id="about" data-label="Concept">
+  <div class="ed-panels" aria-hidden="true">
+    <div class="ed-panel p1"></div>
+    <div class="ed-panel p2"></div>
+  </div>
+  <div class="ed-text">
+    <p class="ed-kicker">Concept</p>
+    <h2 class="ed-h">和<small>Wa</small></h2>
+    <div class="ed-ja">
+      <p>手で、和紙をちぎる。</p>
+      <p>はさみで切り、のりで貼りあわせる。</p>
+      <p>筆で描くのではなく、指先で形をつくる時間のなかで、<br>なつかしい記憶と、新しい会話が生まれていく。</p>
+      <p>世代をこえて、ひとつの作品を囲むこと。<br>それが、私たちの「和」アートセラピーです。</p>
     </div>
-    <div class="formula fade" aria-label="和 × アートセラピー × 世代交流">
-      <div class="circle a">和</div>
-      <div class="circle b">アート<br>セラピー</div>
-      <div class="circle c">世代<br>交流</div>
+    <div class="ed-en">
+      <p>We tear washi by hand, cut it, and paste it together.</p>
+      <p>Not painting with a brush, but shaping with our fingertips — in that time, old memories return and new conversations begin.</p>
+      <p>Gathering across generations around a single work. This is our Wa Art Therapy.</p>
     </div>
   </div>
 </section>
 
-<!-- 活動の意義・目的 -->
-<section class="purpose" id="purpose">
-  <div class="container">
-    <span class="en">Purpose</span>
-    <h2 class="fade">活動の<span class="mark">意義と目的</span></h2>
-    <p class="fade">高齢化が進み、高齢者の孤独や健康が社会の課題となるなかで、慣れ親しんだ和の素材を使ったアートセラピーは、<b>薬を使わない心のケアの選択肢の一つ</b>になりうると考えています。高齢者福祉施設での研究から、次のような効果が期待されています。</p>
-    <div class="purpose-grid">
-      <div class="purpose-card fade"><span class="num">01</span><h3>気分がやわらぐ</h3><p>制作の前後で「ゆううつ」と感じる人が減り、イライラの減少や活力の向上の傾向も見られました。</p></div>
-      <div class="purpose-card fade"><span class="num">02</span><h3>思い出がよみがえる</h3><p>和紙や着物にふれることで昔の仕事や暮らしの記憶がよみがえり、語り合う時間が生まれます。</p></div>
-      <div class="purpose-card fade"><span class="num">03</span><h3>交流と達成感</h3><p>会話が増え、「やりきった」という達成感や、また参加したいという気持ちにつながります。</p></div>
-    </div>
-    <p class="fade" style="margin-top:22px"><a href="research.html" class="text-link">研究でわかったことを詳しく見る →</a></p>
+<!-- 意義・期待される効果 -->
+<section class="ed-purpose" id="purpose" data-label="Purpose">
+  <div class="ed-wrap">
+    <p class="ed-kicker">Purpose</p>
+    <h2 class="ed-h2">活動の意義と、期待される効果</h2>
+    <p class="ed-lead">高齢化が進み、孤独や健康が社会の課題となるなかで、慣れ親しんだ和の素材を使うアートセラピーは、薬を使わない心のケアの選択肢の一つになりうると考えています。</p>
+    <ol class="ed-list">
+      <li><span class="n">01</span><div><h3>気分がやわらぐ</h3><p>制作の前後で「ゆううつ」と感じる人が減り、イライラの減少や活力の向上の傾向も見られました。</p></div></li>
+      <li><span class="n">02</span><div><h3>思い出がよみがえる</h3><p>和紙や着物にふれることで、昔の仕事や暮らしの記憶がよみがえり、語り合う時間が生まれます。</p></div></li>
+      <li><span class="n">03</span><div><h3>交流と達成感</h3><p>会話が増え、「やりきった」という達成感や、また参加したいという気持ちにつながります。</p></div></li>
+    </ol>
+    <a href="research.html" class="ed-link">研究でわかったことを見る</a>
   </div>
 </section>
 
-<!-- ページ案内 -->
-<section class="guide">
-  <div class="container">
-    <span class="en">Contents</span>
-    <h2 class="fade">もっと<span class="mark">知る</span></h2>
-    <div class="guide-grid">
-      <a class="guide-card fade" href="activity.html"><span class="en">Activity</span><h3>活動について</h3><p>活動の流れと、参加した人の声</p></a>
-      <a class="guide-card fade" href="research.html"><span class="en">Research</span><h3>研究・実績</h3><p>どんな研究につながるか、これまでの実績と取り組み</p></a>
-      <a class="guide-card fade" href="history.html"><span class="en">History</span><h3>活動のあゆみ</h3><p>月ごと・季節ごとの1年間</p></a>
-      <a class="guide-card fade" href="members.html"><span class="en">Members</span><h3>仲間</h3><p>いっしょに活動するメンバーと協力団体</p></a>
-      <a class="guide-card fade" href="support.html"><span class="en">Support</span><h3>応援する・賛助会員</h3><p>ご寄付や物品のご提供、賛助会員制度</p></a>
-      <a class="guide-card fade" href="apply.html"><span class="en">Apply</span><h3>応募フォーム</h3><p>施設の方・学生の方・ご支援の方</p></a>
+<!-- ロゴについて -->
+<section class="ed-logo" id="logo" data-label="Symbol">
+  <div class="ed-wrap ed-logo-grid">
+    <div class="ed-logo-fig"><img src="assets/mark.png" alt="和アートセラピーのシンボルマーク"></div>
+    <div>
+      <p class="ed-kicker">Symbol</p>
+      <h2 class="ed-h2">シンボルマークについて</h2>
+      <p>kuru.makeの「k」と「m」を組み合わせたモノグラムです。</p>
+      <p>高齢者と若者が折り紙を折る。ふたりが向かい合い、言葉を交わしながら重なりあう姿をかたちにしました。朱の丸は、その間に生まれるあたたかな時間をあらわしています。</p>
+      <p class="ed-en-s">A monogram of the “k” and “m” of kuru.make: an elder and a young person folding origami together, facing each other and overlapping as they talk. The red circle represents the warm time born between them.</p>
     </div>
   </div>
 </section>
 
-<!-- 7. Contact -->
-<section class="contact" id="contact">
-  <div class="container">
-    <span class="en">Join Us</span>
-    <h2 class="fade">いっしょに、<span class="mark">はじめませんか。</span></h2>
-    <p class="fade">施設としての受け入れ、学生としての参加、どちらも歓迎です。</p>
-    <div class="contact-grid">
-      <div class="apply-card fac fade">
-        <h3>施設の方</h3>
-        <p>活動の受け入れをご検討の施設さま向けのお申し込みです。</p>
-        <a href="apply.html#facility" class="btn">施設として応募</a>
-      </div>
-      <div class="apply-card you fade">
-        <h3>学生の方</h3>
-        <p>活動に参加したい学生・OT志望の方向けのお申し込みです。</p>
-        <a href="apply.html#student" class="btn indigo">学生として応募</a>
-      </div>
+<!-- もっと知る -->
+<section class="ed-index" data-label="Contents">
+  <div class="ed-wrap">
+    <p class="ed-kicker">Contents</p>
+    <ul class="ed-toc">
+      <li><a href="activity.html"><span class="en-t">Activity</span><span class="ja-t">活動について</span></a></li>
+      <li><a href="research.html"><span class="en-t">Research</span><span class="ja-t">研究・実績</span></a></li>
+      <li><a href="history.html"><span class="en-t">History</span><span class="ja-t">活動のあゆみ</span></a></li>
+      <li><a href="members.html"><span class="en-t">Members</span><span class="ja-t">仲間</span></a></li>
+      <li><a href="support.html"><span class="en-t">Support</span><span class="ja-t">応援する・賛助会員</span></a></li>
+      <li><a href="apply.html"><span class="en-t">Apply</span><span class="ja-t">応募フォーム</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 参加募集 -->
+<section class="ed-join" id="contact" data-label="Join Us">
+  <div class="ed-wrap">
+    <p class="ed-kicker">Join Us</p>
+    <h2 class="ed-h2">いっしょに、はじめませんか。</h2>
+    <div class="ed-join-grid">
+      <a href="apply.html#facility"><span class="en-t">For Facilities</span><span class="ja-t">施設の方</span><small>活動の受け入れをご検討の施設さま</small></a>
+      <a href="apply.html#student"><span class="en-t">For Students</span><span class="ja-t">学生の方</span><small>活動に参加したい学生・OT志望の方</small></a>
+      <a href="apply.html#support"><span class="en-t">Support</span><span class="ja-t">ご支援の方</span><small>賛助会員・ご寄付・物品のご提供</small></a>
     </div>
   </div>
 </section>
 
+<p class="ed-section-label" aria-hidden="true"></p>
 </main>
 
 <footer>
   <div class="container">
-    <div class="logo"><i></i>和アートセラピー</div>
+    <img class="footer-logo" src="assets/logo.png" alt="ロゴ" width="190" height="137">
     <p>順天堂大学 研究／サークル活動（団体情報は仮）</p>
     <p>© 2026 Wa Art Therapy</p>
   </div>
@@ -152,6 +157,6 @@ const io = new IntersectionObserver((es) => {
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
 </script>
 <script src="menu.js?v=4"></script>
-<script src="motion.js?v=4"></script>
+<script src="motion.js?v=6"></script>
 </body>
 </html>
