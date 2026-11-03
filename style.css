@@ -1123,3 +1123,30 @@ input[type=text], input[type=email], input[type=tel], select, textarea { border-
 .sp-only { display: none; }
 @media (max-width: 860px) { .sp-only { display: inline; } }
 .order-note { font-family: var(--font-serif); font-size: 13px; letter-spacing: .1em; color: var(--muted); margin: -14px 0 18px; }
+
+/* ===== 活動のあゆみ：5つの時期の帯 ===== */
+.strip.plum { --paper: #E6D0D8; --deep: #A8717F; }
+.periods { height: 660px; }
+.periods .strip .ttl { font-size: clamp(28px, 2.8vw, 40px); letter-spacing: .3em; }
+.periods .strip .sub { font-size: 13px; letter-spacing: .24em; }
+.periods .strip .dot { width: 90px; height: 90px; }
+.periods:hover .strip, .periods.has-open .strip { flex-grow: .8; }
+.periods .strip:hover, .periods .strip:focus-visible, .periods .strip.open { flex-grow: 3.2 !important; }
+.periods .strip .detail { left: auto; right: 24px; top: 36px; bottom: auto; max-height: calc(100% - 72px); width: min(380px, calc(100% - 120px)); padding: 22px 22px 10px; overflow: auto; }
+.periods .strip .detail h3 { font-size: 20px; margin-bottom: 10px; display: flex; align-items: baseline; gap: 12px; }
+.periods .strip .detail h3 small { font-size: 13px; letter-spacing: .14em; color: var(--muted); }
+.acts { list-style: none; }
+.acts li { display: grid; grid-template-columns: 3.4em 1fr; gap: 10px; padding: 14px 0; border-top: 1px solid var(--line); }
+.acts b { font-family: var(--font-en); font-weight: 500; font-size: 20px; color: var(--deep); filter: brightness(.8); line-height: 1.3; font-variant-numeric: lining-nums; }
+.acts .tag { margin: 0 8px 4px 0 !important; font-size: 11px !important; padding: 0 8px !important; vertical-align: 2px; }
+.acts strong { font-family: var(--font-serif); font-weight: 500; font-size: 16px; letter-spacing: .08em; }
+.acts p { font-size: 14px !important; line-height: 1.8 !important; margin-top: 2px !important; color: #3b3b42; }
+.hist-note { margin-top: 26px; font-family: var(--font-serif); font-size: 13px; letter-spacing: .06em; opacity: .6; }
+@media (max-width: 860px) {
+  .periods { height: auto; }
+  .periods .strip .ttl, .periods .strip:hover .ttl, .periods .strip.open .ttl { font-size: 21px; letter-spacing: .14em; }
+  .periods .strip .detail { position: relative; top: auto; right: auto; bottom: auto; left: auto; width: auto; overflow: visible; padding: 6px 16px 4px; }
+  .acts li { grid-template-columns: 3em 1fr; padding: 12px 0; }
+  .acts li:first-child { border-top: none; }
+}
+@media (max-width: 860px) { .periods .strip .detail h3 { display: none; } }
