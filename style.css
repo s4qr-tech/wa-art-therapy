@@ -1182,3 +1182,23 @@ input[type=text], input[type=email], input[type=tel], select, textarea { border-
   .periods .strip.is-active { filter: none; }
 }
 @media (max-width: 860px) { .periods { height: auto; } }
+
+/* ===== 仲間：3項目（大学生・施設・協力者） ===== */
+.member-index { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); margin: 30px 0 20px; }
+.member-index a { display: flex; flex-direction: column; gap: 4px; padding: 22px 20px 22px 0; border-bottom: 1px solid var(--line); transition: color .2s; }
+.member-index li + li a { padding-left: 20px; border-left: 1px solid var(--line); }
+.member-index a:hover { color: var(--shu); }
+.member-index .ja-t { font-size: 18px; opacity: 1; letter-spacing: .14em; }
+.member-index em { font-style: normal; font-family: var(--font-en); font-size: 20px; color: var(--shu); margin-left: 10px; }
+.member-group { padding-top: 40px; scroll-margin-top: 80px; }
+.profiles-title { display: flex; align-items: baseline; gap: 14px; margin: 20px 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.profiles-title .en-s { font-family: var(--font-en); font-size: 13px; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); order: 2; }
+.avatar .ini { font-family: var(--font-en); font-weight: 500; font-size: 30px; letter-spacing: .06em; }
+.member-group .empty { font-family: var(--font-serif); color: var(--muted); }
+@media (max-width: 860px) {
+  .member-index { grid-template-columns: 1fr 1fr 1fr; }
+  .member-index a { padding: 16px 8px 16px 0; }
+  .member-index li + li a { padding-left: 10px; }
+  .member-index .en-t { font-size: 16px; }
+  .member-index .ja-t { font-size: 14px; letter-spacing: .06em; }
+}

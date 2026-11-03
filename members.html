@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=24">
+<link rel="stylesheet" href="style.css?v=25">
 </head>
 <body>
 <header>
@@ -40,22 +40,15 @@
     <div class="container">
       <span class="en">Members</span>
       <h1>いっしょに活動する仲間</h1>
-      <p>学生と協力施設が、立場をこえて関わっています。</p>
+      <p>順天堂大学を中心に、大学生・施設・協力者が、立場をこえて関わっています。</p>
     </div>
   </section>
 <!-- 5. Members -->
 <section class="members" id="members">
   <div class="container">
-        <p class="fade">順天堂大学を中心に、他大学の学生も、学年や大学をこえて関わっています。</p>
-    <div class="member-row fade">
-      <span class="chip fill">順天堂大学</span>
-      <span class="chip">他大学の学生（仮）</span>
-      <span class="chip">協力施設（仮）</span>
-    </div>
-
-    <h3 class="profiles-title fade">メンバー紹介</h3>
-    <div class="profiles" id="profiles"></div>
-    <p class="note">※ 掲載はご本人の許可がある方のみです。現在はサンプルを表示しています。</p>
+    <ul class="member-index fade" id="memberIndex"></ul>
+    <div id="memberGroups"></div>
+    <p class="note">※ 掲載はご本人の許可がある方のみ、お名前はイニシャルで表記しています。写真はご本人が希望された場合のみ掲載します。現在はサンプルを表示しています。</p>
   </div>
 </section>
 
@@ -73,27 +66,56 @@
 </footer>
 
 <script>
-// ▼ メンバー紹介：1人1行。consent が true の人だけ表示されます
-//   photo：顔写真や好きなアイコン画像のパス（例 'members/hanako.jpg'）。空なら名前の頭文字の丸アイコン
+// ▼ メンバー紹介：1人（1施設）1行。consent（掲載許可）が true のものだけ表示されます
+//   group   ：'student'（大学生）／'facility'（施設）／'supporter'（協力者）
+//   initial ：お名前はイニシャルで（例 'H.S.'）
+//   photoOK ：写真の掲載を本人が希望した場合だけ true
+//   photo   ：写真や好きな画像のファイル（assets/members/ に入れる。例 'assets/members/hs.jpg'）
+//             photoOK が false、または photo が空ならイニシャルの丸アイコン
 const MEMBERS = [
-  { consent: true, name: 'はなこ（サンプル）', grade: '医療看護学部 2年', photo: '', met: '新歓の説明会で', comment: '和紙をちぎる音で、利用者さんと一緒に笑えたのが忘れられません。' },
-  { consent: true, name: 'たろう（サンプル）', grade: '保健医療学部 3年', photo: '', met: '先輩に誘われて', comment: '手を動かすことの力を、毎回実感しています。' },
-  { consent: true, name: 'みどり（サンプル）', grade: '他大学 1年', photo: '', met: 'SNSで見つけて', comment: '大学の外の仲間とつながれるのがうれしいです。' },
-  { consent: false, name: '（許可前の人はここに入れておけば表示されません）', grade: '', photo: '', met: '', comment: '' },
+  { group: 'student',   consent: true, initial: 'H.S.', role: '医療看護学部 2年', met: '新歓の説明会で', comment: '和紙をちぎる音で、利用者さんと一緒に笑えたのが忘れられません。', photoOK: false, photo: '' },
+  { group: 'student',   consent: true, initial: 'T.K.', role: '保健医療学部 3年', met: '先輩に誘われて', comment: '手を動かすことの力を、毎回実感しています。', photoOK: false, photo: '' },
+  { group: 'student',   consent: true, initial: 'M.A.', role: '他大学 1年',       met: 'SNSで見つけて', comment: '大学の外の仲間とつながれるのがうれしいです。', photoOK: false, photo: '' },
+  { group: 'facility',  consent: true, name: '大阪のデイサービス施設', initial: '', role: '2026年10月 ハロウィンイベント', comment: '利用者さんが季節の飾りづくりをとても楽しみにされていました。（仮）', photoOK: false, photo: '' },
+  { group: 'supporter', consent: true, initial: 'Y.N.', role: '指導教員（仮）', comment: '学生の主体的な取り組みを、研究の面から支えています。（仮）', photoOK: false, photo: '' },
+  { group: 'student',   consent: false, initial: '（許可前の人はここに入れておけば表示されません）', role: '', comment: '', photoOK: false, photo: '' },
 ];
-const AVATAR_COLORS = ['#E9D6D2', '#D9DEC8', '#E8D3BF', '#D2D8E2'];
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-document.getElementById('profiles').innerHTML = MEMBERS.filter(m => m.consent).map((m, i) => `
-  <article class="profile fade">
-    <div class="avatar" style="background:${AVATAR_COLORS[i % AVATAR_COLORS.length]}">
-      ${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}のアイコン">` : `<span>${esc(m.name.charAt(0))}</span>`}
-    </div>
-    <h4>${esc(m.name)}</h4>
-    <p class="grade">${esc(m.grade)}</p>
-    <p class="met"><b>出会い</b>${esc(m.met)}</p>
-    <p class="comment">${esc(m.comment)}</p>
-  </article>`).join('');
+const GROUPS = [
+  { key: 'student',   ja: '大学生', en: 'Students' },
+  { key: 'facility',  ja: '施設',   en: 'Facilities' },
+  { key: 'supporter', ja: '協力者', en: 'Supporters' },
+];
+const AVATAR_COLORS = { student: '#E9D6D2', facility: '#D9DEC8', supporter: '#D2D8E2' };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const shown = MEMBERS.filter(m => m.consent);
 
+const card = m => {
+  const label = m.group === 'facility' ? m.name : m.initial;
+  const mark = m.group === 'facility' ? (m.initial || '施') : m.initial.replace(/\./g, '');
+  return `
+  <article class="profile">
+    <div class="avatar" style="background:${AVATAR_COLORS[m.group]}">
+      ${m.photoOK && m.photo ? `<img src="${esc(m.photo)}" alt="${esc(label)}さんの画像">` : `<span class="ini">${esc(mark)}</span>`}
+    </div>
+    <h4>${esc(label)}</h4>
+    ${m.group === 'facility' && m.initial ? `<p class="grade">ご担当 ${esc(m.initial)}</p>` : ''}
+    <p class="grade">${esc(m.role)}</p>
+    ${m.met ? `<p class="met"><b>出会い</b>${esc(m.met)}</p>` : ''}
+    <p class="comment">${esc(m.comment)}</p>
+  </article>`;
+};
+
+document.getElementById('memberIndex').innerHTML = GROUPS.map(g =>
+  `<li><a href="#g-${g.key}"><span class="en-t">${g.en}</span><span class="ja-t">${g.ja}<em>${shown.filter(m => m.group === g.key).length}</em></span></a></li>`).join('');
+
+document.getElementById('memberGroups').innerHTML = GROUPS.map(g => {
+  const list = shown.filter(m => m.group === g.key);
+  return `
+  <div class="member-group" id="g-${g.key}">
+    <h3 class="profiles-title"><span class="en-s">${g.en}</span>${g.ja}</h3>
+    ${list.length ? `<div class="profiles">${list.map(card).join('')}</div>` : '<p class="empty">ただいま掲載準備中です。</p>'}
+  </div>`;
+}).join('');
 
 const io = new IntersectionObserver((es) => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
