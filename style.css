@@ -1150,3 +1150,35 @@ input[type=text], input[type=email], input[type=tel], select, textarea { border-
   .acts li:first-child { border-top: none; }
 }
 @media (max-width: 860px) { .periods .strip .detail h3 { display: none; } }
+
+/* ===== 活動のあゆみ：帯は動かさない（v11） ===== */
+.periods { height: 500px; }
+.periods .strip, .periods:hover .strip, .periods.has-open .strip,
+.periods .strip:hover, .periods .strip:focus-visible, .periods .strip.open { flex-grow: 1 !important; }
+.periods .strip { transition: filter .2s; }
+.periods .strip::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--shu); opacity: 0; transition: opacity .2s; z-index: 2; }
+.periods .strip:hover { filter: brightness(.97); }
+.periods .strip:hover::before { opacity: .35; }
+.periods .strip.is-active::before { opacity: 1; }
+.periods .strip.is-active { filter: brightness(.95); }
+.periods .strip .ttl, .periods .strip:hover .ttl, .periods .strip.open .ttl { left: 50%; transform: translateX(-50%); transition: none; }
+.periods .strip .detail { display: none; }
+
+.period-panel { margin: 40px 0 90px; background: var(--white); border: 1px solid var(--line); border-top: 2px solid var(--shu); padding: 34px 40px 20px; transition: opacity .18s ease; }
+.period-panel.fading { opacity: 0; }
+.period-panel h3 { font-family: var(--font-serif); font-weight: 500; font-size: 26px; letter-spacing: .14em; display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+.period-panel h3 small { font-size: 14px; letter-spacing: .14em; color: var(--muted); }
+.period-panel .acts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); column-gap: 36px; }
+.period-panel .tag { display: inline-block; color: #fff; background: var(--deep); }
+.period-panel.spring { --deep: #B5847E; } .period-panel.summer { --deep: #7D9068; }
+.period-panel.autumn { --deep: #B0704E; } .period-panel.winter { --deep: #52668A; } .period-panel.plum { --deep: #A8717F; }
+@media (prefers-reduced-motion: reduce) { .period-panel, .periods .strip, .periods .strip::before { transition: none; } }
+
+@media (max-width: 860px) {
+  .period-panel { display: none; }
+  .periods .strip.open .detail { display: block; }
+  .periods .strip, .periods .strip .detail { transition: none; }
+  .periods .strip::before { display: none; }
+  .periods .strip.is-active { filter: none; }
+}
+@media (max-width: 860px) { .periods { height: auto; } }

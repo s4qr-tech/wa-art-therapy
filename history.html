@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=23">
+<link rel="stylesheet" href="style.css?v=24">
 </head>
 <body>
 
@@ -47,6 +47,9 @@
 
   <!-- 時期ごとの縦帯（5区分） -->
   <div class="strips periods" id="strips" aria-label="時期ごとの活動"></div>
+  <div class="container">
+    <div class="period-panel" id="periodPanel" aria-live="polite"></div>
+  </div>
 
   <div class="hist-word">
     <div class="container">
@@ -111,16 +114,40 @@ strips.innerHTML = PERIODS.map(p => {
   </article>`;
 }).join('');
 
-strips.querySelectorAll('.strip').forEach(s => {
-  const toggle = () => {
-    const open = !s.classList.contains('open');
-    strips.querySelectorAll('.strip').forEach(x => x.classList.remove('open'));
-    s.classList.toggle('open', open);
-    strips.classList.toggle('has-open', open);
+const panel = document.getElementById('periodPanel');
+const stripEls = [...strips.querySelectorAll('.strip')];
+const isWide = () => matchMedia('(min-width: 861px)').matches;
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// PC：帯は動かさず、下のパネルの中身だけを切り替える
+const select = i => {
+  stripEls.forEach((x, j) => { x.classList.toggle('is-active', i === j); x.setAttribute('aria-pressed', i === j); });
+  const render = () => {
+    const src = stripEls[i].querySelector('.detail');
+    panel.innerHTML = src.innerHTML;
+    panel.className = 'period-panel ' + PERIODS[i].key;
   };
-  s.addEventListener('click', toggle);
-  s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  if (calm || !panel.innerHTML) { render(); return; }
+  panel.classList.add('fading');
+  setTimeout(() => { render(); }, 180);
+};
+
+// スマホ：押すと開く（動きなし）
+const toggle = s => {
+  const open = !s.classList.contains('open');
+  stripEls.forEach(x => x.classList.remove('open'));
+  s.classList.toggle('open', open);
+};
+
+stripEls.forEach((s, i) => {
+  const act = () => isWide() ? select(i) : toggle(s);
+  s.addEventListener('click', act);
+  s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
 });
+
+// はじめは、いまの時期を表示
+const nowMonth = new Date().getMonth() + 1;
+select(Math.max(0, PERIODS.findIndex(p => p.months.includes(nowMonth))));
 </script>
 <script src="menu.js?v=4"></script>
 <script src="motion.js?v=7"></script>
