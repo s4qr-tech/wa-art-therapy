@@ -1114,3 +1114,7 @@ input[type=text], input[type=email], input[type=tel], select, textarea { border-
 /* ブランド名 kuru.make（ヘッダー） */
 .logo span { font-family: var(--font-en); font-weight: 500; font-size: 22px; letter-spacing: .08em; line-height: 1; }
 @media (max-width: 860px) { .logo span { font-size: 19px; } }
+
+/* トップのタイトル（和文） */
+.ed-title-ja { font-family: var(--font-serif); font-weight: 500; font-size: clamp(30px, 3.2vw, 42px); letter-spacing: .3em; line-height: 1.4; white-space: nowrap; }
+@media (max-width: 860px) { .ed-title-ja { font-size: 26px; letter-spacing: .24em; } }
