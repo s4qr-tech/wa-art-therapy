@@ -913,3 +913,23 @@ header { background: rgba(243,240,232,.9); }
 .ed-catch { font-size: clamp(28px, 3vw, 42px); letter-spacing: .26em; align-self: start; margin-top: 10px; }
 .ed-hero-in { padding-top: 120px; }
 .ed-hero-mark { right: 26%; bottom: 12%; width: min(18vw, 230px); }
+
+/* 活動実績：数字のボード */
+.stats-period { font-family: var(--font-serif); font-size: 14px; letter-spacing: .12em; color: var(--muted); margin: -10px 0 22px; }
+.stat-board { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.stat-board li { display: flex; flex-direction: column; gap: 10px; padding: 30px 24px 28px; }
+.stat-board li + li { border-left: 1px solid var(--line); }
+.stat-board .lbl { font-family: var(--font-serif); font-size: 14px; letter-spacing: .24em; }
+.stat-board .num { font-family: var(--font-en); font-weight: 400; font-size: clamp(56px, 6vw, 84px); line-height: 1; color: var(--ink); letter-spacing: -.01em; }
+.stat-board .num small { font-family: var(--font-serif); font-size: 16px; letter-spacing: .1em; margin-left: 6px; }
+.stat-board .num em { font-family: var(--font-serif); font-style: normal; font-size: 16px; margin-right: 4px; vertical-align: .9em; }
+.stat-board li:first-child .num { color: var(--shu); }
+.stat-board .cap { font-size: 13px; color: var(--muted); line-height: 1.7; }
+@media (max-width: 860px) {
+  .stat-board { grid-template-columns: 1fr 1fr; }
+  .stat-board li { padding: 22px 14px; }
+  .stat-board li:nth-child(3) { border-left: none; }
+  .stat-board li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stat-board .num { font-size: 48px; }
+}
+.stat-board .num, .ed-list .n, .en-t { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
