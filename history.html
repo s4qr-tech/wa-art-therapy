@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 
@@ -64,6 +64,7 @@
       <p class="note">※ 活動内容・施設名はすべて仮置きです。実際の予定・実績に差し替えてください。</p>
     </div>
   </section>
+<p class="ed-section-label" aria-hidden="true"></p>
 </main>
 
 <nav class="pager container" aria-label="ページ移動"><a class="pn prev" href="research.html"><small>前のページ</small>研究・実績</a><a class="pn next" href="members.html"><small>次のページ</small>仲間</a></nav>
@@ -87,7 +88,7 @@ const MONTHS = [
   { m: 9,  season: 'autumn', title: '敬老の日作品展',   tag: '展示',   text: '施設のみなさんの作品を、施設のロビーで展示しました。' },
   { m: 10, season: 'autumn', title: '学園祭展示',       tag: '展示',   text: '活動紹介パネルと、来場者向けのちぎり絵体験。' },
   { m: 11, season: 'autumn', title: '紅葉のちぎり絵',   tag: '訪問',   text: 'C施設訪問。赤や黄の和紙を破いて紅葉の山をつくりました。' },
-  { m: 12, season: 'winter', title: '年末振り返り会',   tag: '交流',   text: '1年の記録を見返し、OTの先生からフィードバック。' },
+  { m: 12, season: 'winter', title: '年末振り返り会',   tag: '交流',   text: '1年の記録を見返し、みんなで次の年の目標を話し合いました。' },
   { m: 1,  season: 'winter', title: 'お正月飾り',       tag: '訪問',   text: '和紙を切り貼りして、干支と鏡もちの飾りを制作。' },
   { m: 2,  season: 'winter', title: '研究まとめ',       tag: '研究',   text: '活動記録とアンケートを分析し、報告書にまとめます。' },
   { m: 3,  season: 'spring', title: '成果発表・追いコン', tag: '発表', text: '学内で成果を発表。卒業する先輩を送り出します。' },
@@ -131,6 +132,6 @@ document.getElementById('seasonList').innerHTML = Object.entries(SEASONS).map(([
   </div>`).join('');
 </script>
 <script src="menu.js?v=4"></script>
-<script src="motion.js?v=6"></script>
+<script src="motion.js?v=7"></script>
 </body>
 </html>

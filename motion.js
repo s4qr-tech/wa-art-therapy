@@ -92,8 +92,14 @@ document.querySelectorAll('.fukuro').forEach(box => {
 // ===== 左上のセクション名（いまどこを読んでいるか） =====
 (function sectionLabel() {
   const label = document.querySelector('.ed-section-label');
-  const secs = document.querySelectorAll('[data-label]');
-  if (!label || !secs.length) return;
+  if (!label) return;
+  // data-label がない節は、見出しの英字（.en）から自動で名前をつける
+  document.querySelectorAll('main section:not([data-label])').forEach(s => {
+    const en = s.querySelector('.en');
+    if (en) s.dataset.label = en.textContent.trim();
+  });
+  const secs = document.querySelectorAll('main section[data-label]');
+  if (!secs.length) return;
   const io = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting) label.textContent = e.target.dataset.label; });
   }, { rootMargin: '-45% 0px -50% 0px' });
