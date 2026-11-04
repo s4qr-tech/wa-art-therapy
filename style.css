@@ -1232,3 +1232,24 @@ section[id], [data-index] { scroll-margin-top: 80px; }
 
 /* 参加者の声（袋とじなし） */
 .voice-label { display: block; font-family: var(--font-serif); font-size: 13px; letter-spacing: .2em; color: var(--shu); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+/* ===== ロゴを大きく（v15） ===== */
+.nav { height: 76px; }
+.menu { top: 76px; }
+.logo { gap: 14px; }
+.logo img { width: 56px; }
+.logo span { font-size: 26px; }
+.footer-logo { width: 230px; }
+.ed-hero-mark { width: min(24vw, 300px); }
+.roll-bar { top: 92px; }
+.ed-section-label { top: 92px; }
+@media (max-width: 860px) {
+  .nav { height: 66px; }
+  .menu { top: 66px; }
+  .logo { gap: 10px; }
+  .logo img { width: 44px; }
+  .logo span { font-size: 21px; }
+  .footer-logo { width: 190px; }
+  .roll-bar { top: 76px; }
+}
+@media (min-width: 861px) { .ed-hero-mark { right: 18%; } }
